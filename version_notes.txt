@@ -1,0 +1,137 @@
+Version 10.7b42
+	All changes up to version 0.9 of messaging service
+Version 10.7b43 - version 0.11 Messaging Service, 1.1.2 Delivery Manager
+	Added store name for use with messaging service in setup, fixed order in alert history page, added variables for setup page for new customer notifications.
+Version 10.7b44
+	Added prompt to use/update stored card info on pickup screen
+Version 10.7b45
+	Fixed bug in b44 for variable not being declared if prompt not enabled
+Version 10.7b46
+	Fixed incorrect var type error and validation on edit employee reports, fixed logic for handling swipe credit card reader rather than emv
+Version 10.7b47
+	Use query name instead of 'scheduler service' for sender on sms/email history page, fixed bug with adding new canned message, filter on canned messages, success cnt on usage report page
+Version 10.7.b48 - requires version 0.13 Messaging Service
+	Add icon if Messenging Service enabled, merges custom code for Ross printers into main branch, improvements to notification/employee setup pages, some formerly scheduled notifications are now event based
+Version 10.7.b49 - requires 20210527173117_add_popup_flag script run
+	Adds ability to turn off pop-up warning on a terminal basis that customer doesn't have cell phone but has notifications
+Version 10.7.b50
+	Changed how healseal is set in pickup.asp
+Version 10.7.b51
+	Fix in start.asp that fixes problem if storeId is not set after cookies are deleted
+Version 10.7.b52 - requires 20210603160247_add_show_print_modifiers script run
+	Optionally hide print modifiers table, re-added missing use tookan flag, added use heat seal check
+Version 10.7.b53 - requires 0.14 Messaging Service
+	Add cash drawer employee alert, updates to Message Alert History, report for opted out customers, paging on sms history
+Version 10.7.b54 
+	Fix for paging on sms history when no entries in table
+Verion 10.8.rc1
+	Release candidate for 10.8
+Version 10.7.b55 
+	Fix for date format on message history page
+Version 10.7.b56 
+	Added route holiday, re-added schedule editing logic for query alerts, show name/number/email on individual customer sms/email history
+Version 10.7.b57 - version 0.17 Messaging Service
+	Added additional variable options for invoice created message
+Version 10.7.b58
+	Heat seal bug fix on pickup.asp, scrolling on customerfunction.asp
+Version 10.7.b59
+	New heat seal variable
+Version 10.9
+	Clearent logic added
+Version 10.9b1
+	Added leaveCustPage flag
+Version 10.9b2
+	Re-added fix for excharge text replace, make sure radio buttons and labels are on the same line in employee report scheduler page
+Version 10.9b3 - Requires 20210811174423_update_messaging_groups.sql and messaging 0.20 and delivery manager 1.2.3
+	Changes logic so that if customer doesn't have messages manually set, it defaults to default setup
+Version 10.9b4 - Requires 20210816145127_add_cell_phone_req_opt script
+	Cell Phone no longer required to be set if notifications exist, just prompted, unless cell phone is set as a required field for customers
+Version 10.9b5 - Requires Clearent 1.1, script add_clearent_reading_error
+	Adds logic to better handle issues where Clearent transaction returns response but there is an error processing it
+Version 10.9b6
+	Added api key test button on credit card setup page
+Version 10.9b7 Requires scripts up to 20210930150613_add_cc_attempt_table.sql and clearent.1.2 jar
+	Save every CC attempt made to Clearent, if transaction is not complete offer opportunity to apply transaction
+Version 10.9b8
+	More fixes for clearent
+	Bug fixes for when attempting to connect to various services
+Version 10.9b9
+Version 10.9b10
+	Bug fixes for clearent checking if previous transaction exists
+Version 10.9b11 - Requires scripts up to 20211101140241_add_new_flags.sql
+	Added flags to allow customers to create a batch after a delivery marked complete, added
+	new options for what should be on a delivery (added all racked even if not on due date to onlyRacked), added advantaced detail screen and option, and added flag whether to show create delivery button or not, options to select all/sms/email/none on notification edit pages
+Version 10.9b12
+	Fixed bug on apply payment page where ok button was enabled even after a credit card failure which would cause the payment to be applied
+Version 10.9b13
+	Fixed bug with alerts on customer functions page
+Version 10.9b14
+	Fixed some bugs on detailedInvoice page with incorrectly commented out options and prepay if isPromptToDeliverEnabled not set
+Version 10.9b15
+	Fixed another bug on detailedInvoice page, tool menu no longer tries to alert on drawer open when smsm and email not enabled
+Version 10.9b16
+	Fixed bug on issueCreditOrCharge for customers not using sms
+Version 10.9b17	Requires script up to 20211217210049_add_handled_response_table and messenger service 0.26.1
+	Allows users to add/edit messages that if match a customer sms message, that message is treated as handled, sms usage page now breaks down messages sent by rules by which rule
+Version 10.9b18
+	Bug fix for batching with using clearent
+Version 10.9b19 Requires Clearent 1.4.0
+	Clearent test button on terminal credit card page now shows Serial Number of device pinged
+Version 10.9b20
+	Advanced Detail Screen uses adjustDueDateForRoute flag
+Version 10.9b21
+	Fix for clearent with large raw data returns
+Version 10.9b22
+	Fix for messages sent history page so it works with SQL 2008 and bug on pickup for stores that require scanning before picking up
+Version 10.9b23
+	Fix for issue with reprinting CC receipts from clearent
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Version 12.0a1
+	Initial Version
+Version 12.0a2
+	Price list item descriptors can be updated on a department basis rather than 1 at a time, heat seal number of digits now set in misc setup
+Version 12.0a3
+	Fixed bug with card void
+Version 12.0a4
+	Copied changes from 10.9b23	
+Version 12.0a5
+	Heat seal fix from a2 also needed to be done to heatSealRanges page
+Version 12.0a6
+	Bug fix for editing employee hours
+Version 12.0a7
+	Bug fix for batch processing
+Version 12.0a8
+	XCharge works in non-ie
+Version 12.0a9
+	Adding time delay to printing in non-ie
+Version 12.0a10
+		Minor bug fixes
+Version 12.0a11
+	Bug fixes found after deploy to cd stores, ending with issue with lot assignment alerts
+Version 12.0a12 - requires 20220531182842_add_select_invoice_flag.sql script
+	Added flag for whether to auto-select an invoice when it is searched for, enter key works as select for webprompt alert, added fix for lot page printing
+Version 12.0a13
+	Stylesheet change for detailed invoice page, re-added deleted printer settings page, when editting employee roles, the drop downs have colors again
+Version 12.a14
+	Enter key works on customer search page
+Version 12.a15
+	Fix for selecting invoices on customer function page when leave customer page flag is on
+Version 12.0a16
+	Fixed max items in detailed invoice check, enter key on Cash Out reports goes to next field, show html forms on edit printer page
+Version 12.0a17
+	UI fixes for screen resolution issues, button/text sizes, fixed bug with voids for clearent transactions that aren't applied, bug fix for exporting to cvs, bug fix for scanning invoices on customer function page, removed Exit on banner, bug fix for redo button
+Version 12.0a18
+	UI fix for customer notification screen, bug fix for clearent saving american express cards, ui fix for bottom of screens
+Version 12.1
+	Using overlay rather than pop-ups. Also includes some new variables for forms, cell phone icon if phone number is a cell phone, and tags print by rack number rather than invoice
+Version 12.1.1 - Requires CBS Service 1.0.2 jar
+	Added auto-reply to any sms message, fix for redo selection prompt, fix for not showing credit if unfinished cc transaction, added assembly flag, removed requirement for hitting set button for due date on pickup screen, ignore decimal inputs on amount fields, changed some select buttons to ok buttons, fix for inproperly leaving customer functions page when pre-pay flag set, fix for handling line returns in xcharge fields, use standard text box for sms handled message instead of pop-up window, added ability to assign employee roles to all terminals, fix for global descriptors, set focus on overlay prompts, css fixes
+Version 12.1.2
+	Fix for messages on Lot Setup, fix for duplicate customer message on customer entry, if cell phone same as main is checked then updating main phone updates cell phone, fix for account history page with null route discount
+Version 12.2 - Requires scripts up to 20220816184537_add_brand_fields, CBS Services 1.0.4 jar
+	Combined advanced detail screen and normal one, also advanced fields work in PE again, use overlays for descriptors on detail screen and make buttons bigger/add more depending on screen size, fix for maxItems in PE being set to 0 instead of null when blank (which caused split ticket and coupon issues on detailed invoice page), fix for customer id search not working, fix for missing overlay for emailing a report and setting heat seals, bigger fonts for some admin buttons, when selecting routes for a delivery buttons have correct color, fix for focus on customer entry page, fix for printing correct number of copies, improved clearent error messages, fixes for unfinished transactions, fix for getting printer service IP
+Version 12.2.1
+	Added ability to select Bixolon or Bixolon Double as printer drivers, fixed missing messages on issue credit or charge page, fix on heat seals for not submitting on line return
+Version 12.3 - Requires CBSService 1.2.0 jar, scripts up to 20221014141356_add_employee_email_report_tables
+	Updated email logic, including using SendGrid. Able to schedule AR reports and marketing queries, now called specialized reports. Added Incoming Detail By Creation (daily) Employee SMS Report. Added quantity field and option for auto-checking Multiple checkbox on descriptor overlay. Fixed bug on Adjust Item Prices page in pricing editor. Fixed bug where global descriptors option wasn't adding global descriptors when creating new item. Changed logic for 401 error handling on clearent response to make error message hopefully clearer.
