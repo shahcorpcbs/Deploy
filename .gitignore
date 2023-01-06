@@ -31,5 +31,6 @@ logs/
 /src/main/resources/stuff/
 CBSService/
 CBSPrinterTerm/
+CBSGuiService/
 scripts/
 Web/
