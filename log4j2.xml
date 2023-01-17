@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd' 'HH:mm:ss.SSS} [%t] -- %p %-40C{3} : %m%n</Property>
+        <Property name="APP_LOG_ROOT">logs</Property>
+        <Property name="APP_MAX_HISTORY">30d</Property>
+        <Property name="APP_CLEARENT_MAX_HISTORY">60d</Property>
+    </Properties>
+
+    <Appenders>
+
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="messenger" fileName="${sys:APP_LOG_ROOT}/messenger.log"
+                     filePattern="${sys:APP_LOG_ROOT}/messenger.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${sys:APP_LOG_ROOT}" maxDepth="1">
+                    <IfFileName glob="messenger.*.log.gz" />
+                    <IfLastModified age="${APP_MAX_HISTORY}" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="delivery" fileName="${sys:APP_LOG_ROOT}/delivery.log"
+                     filePattern="${sys:APP_LOG_ROOT}/delivery.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${sys:APP_LOG_ROOT}" maxDepth="1">
+                    <IfFileName glob="delivery.*.log.gz" />
+                    <IfLastModified age="${APP_MAX_HISTORY}" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="clearent" fileName="${sys:APP_LOG_ROOT}/clearent.log"
+                     filePattern="${sys:APP_LOG_ROOT}/clearent.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${sys:APP_LOG_ROOT}" maxDepth="1">
+                    <IfFileName glob="clearent.*.log.gz" />
+                    <IfLastModified age="${APP_CLEARENT_MAX_HISTORY}" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="device" fileName="${sys:APP_LOG_ROOT}/device.log"
+                     filePattern="${sys:APP_LOG_ROOT}/device.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${sys:APP_LOG_ROOT}" maxDepth="1">
+                    <IfFileName glob="device.*.log.gz" />
+                    <IfLastModified age="${APP_MAX_HISTORY}" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="printing" fileName="${sys:APP_LOG_ROOT}/printing.log"
+                     filePattern="${sys:APP_LOG_ROOT}/printing.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${sys:APP_LOG_ROOT}" maxDepth="1">
+                    <IfFileName glob="printing.*.log.gz" />
+                    <IfLastModified age="${APP_MAX_HISTORY}" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="common" fileName="${sys:APP_LOG_ROOT}/services.log"
+                     filePattern="${sys:APP_LOG_ROOT}/services.%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${sys:APP_LOG_ROOT}" maxDepth="1">
+                    <IfFileName glob="services.*.log.gz" />
+                    <IfLastModified age="${APP_MAX_HISTORY}" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="com.shahcorp.messaging" additivity="false" level="info">
+            <AppenderRef ref="messenger" />
+            <AppenderRef ref="console"  />
+        </Logger>
+
+        <Logger name="com.shahcorp.printing" additivity="false" level="info">
+            <AppenderRef ref="printing" />
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Logger name="com.shahcorp.clearent" additivity="false" level="info">
+            <AppenderRef ref="clearent" />
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Logger name="com.shahcorp.delivery" additivity="false" level="info">
+            <AppenderRef ref="delivery" />
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Logger name="com.shahcorp.deviceCenter" additivity="false" level="info">
+            <AppenderRef ref="device" />
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="common" />
+            <AppenderRef ref="console"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
